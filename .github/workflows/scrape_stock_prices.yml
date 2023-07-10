@@ -1,7 +1,7 @@
 name: Scrape Stock Prices
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "15 * * *"
   
 jobs:
   scrape:
@@ -10,7 +10,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
         with
-        python-version:"3.x"
+        python-version:"3.11"
         
     - name: Install dependencies
       run:

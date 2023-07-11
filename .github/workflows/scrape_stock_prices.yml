@@ -19,3 +19,9 @@ jobs:
         
     - name: Scrape Stock Prices
       run: python scrape_stock_prices.py
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: stock-info
+        path: stock.prices.csv

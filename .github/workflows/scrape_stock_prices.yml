@@ -7,21 +7,24 @@ jobs:
   scrape:
     runs-on: ubuntu-20.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-        with
-        python-version:"3.11"
+      - name: Checkout code
+        uses: actions/checkout@v2
         
-    - name: Install dependencies
-      run:
-        python -m pip install --upgrade pop
-        pip install -r requirements. txt
+      - name: Set up Python  
+        uses: actions/setup-python@v2
+        with:
+          python-version:'3.11'
         
-    - name: Scrape Stock Prices
-      run: python scrape_stock_prices.py
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pop
+          pip install -r requirements. txt
+        
+      - name: Scrape Stock Prices
+        run: python scrape_stock_prices.py
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: stock-info
-        path: stock.prices.csv
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: stock-info
+          path: stock.prices.csv

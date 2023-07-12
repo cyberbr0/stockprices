@@ -1,8 +1,8 @@
+import csv
 import yfinance as yf
 from datetime import datetime
 
 tickers = ['AAPL','BRK-A','META','MSFT','NVDA','TSLA'] 
-interval_minutes = 15
 now = datetime.now()
 
 stock_data = {}
@@ -19,4 +19,16 @@ print('Berkshire Hathaway Inc Class A | BRK-A:',stock_data['BRK-A'],'\n\n')
 print('Meta Platforms Inc | META:',stock_data['META'],'\n\n')
 print('Microsoft Corp | MSFT:',stock_data['MSFT'],'\n\n')
 print('Nvidia Corp | NVDA:',stock_data['NVDA'],'\n\n')
-print('Tesla Inc | TSLA:', stock_data['TSLA'],'\n\n')
+print('Tesla Inc | TSLA:', stock_data['TSLA'],'\n\n')    
+
+filename = 'stock.prices.csv'
+
+with open(filename, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    
+    writer.writerow(['Date','Open','High','Low','Close','Adj Close','Volume'])
+    
+for stock_data[ticker] in stock_data:
+    #writer.writerow([ticker, stock_data[ticker].to_csv(index=False)])
+
+    print(f'Artifacts uploaded to {filename}')

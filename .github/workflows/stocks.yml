@@ -1,4 +1,4 @@
-name: Stock Prices
+name: Stock Market Prices (Scheduled)
 on:
   schedule:
     - cron: '*/15 * * * *'

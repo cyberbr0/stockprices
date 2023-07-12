@@ -1,15 +1,17 @@
 import yfinance as yf
-import time
+from datetime import datetime
 
 tickers = ['AAPL', 'BRK-A', 'META', 'MSFT', 'NVDA', 'TSLA'] 
 interval_minutes = 15
+now = datetime.now()
+
 
 while True:
     stock_data = {}
     
     for ticker in tickers:
         stock = yf.Ticker(ticker)
-        data = stock.history(period='1d')
+        data = yf.download(ticker, start='2023-07-10', end=now.strftime('%Y-%m-%d'))
         stock_data[ticker] = data    
         
     for ticker, data in stock_data.items():

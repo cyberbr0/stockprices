@@ -1,6 +1,7 @@
 name: Stock Prices
 on:
-  workflow_dispatch 
+  schedule:
+    - cron: '*/15 * * * *'
 jobs:
   scrape:
     runs-on: ubuntu-20.04

@@ -1,7 +1,7 @@
-name: Stock Prices
+name: Stock Market Prices (Manual)
 on:
-  schedule:
-    - cron: '*/15 * * * *'
+  workflow_dispatch
+    
 jobs:
   scrape:
     runs-on: ubuntu-20.04

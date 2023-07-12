@@ -1,0 +1,31 @@
+name: Scrape Stock Prices
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  
+jobs:
+  scrape:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Python  
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance
+        
+      - name: Scrape Stock Prices
+        run: python scrape_stock_prices.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: stock-info
+          path: stock.prices.csv

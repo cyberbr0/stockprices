@@ -16,7 +16,7 @@ for ticker in tickers:
     stock_data[ticker] = data    
 
 
-    #print(f'\n\nApple Inc | AAPL:',stock_data['AAPL'],'\n\n\n')
+    print(f'\n\nApple Inc | AAPL:',stock_data['AAPL'],'\n\n\n')
     #print(f'Berkshire Hathaway Inc Class A |BRK-A:',stock_data['BRK-A'],'\n\n\n')
     #print(f'Meta Platforms Inc | META:',stock_data['META'],'\n\n\n')
     #print(f'Microsoft Corp | MSFT:',stock_data['MSFT'],'\n\n\n')

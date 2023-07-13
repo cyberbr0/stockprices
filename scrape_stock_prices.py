@@ -29,6 +29,5 @@ with open(filename, 'w', newline='') as csvfile:
     writer.writerow(['Date','Open','High','Low','Close','Adj Close','Volume'])
     
 for stock_data[ticker] in stock_data:
-    #writer.writerow([ticker, stock_data[ticker].to_csv(index=False)])
-
+    
     print(f'Artifacts uploaded to {filename}')
